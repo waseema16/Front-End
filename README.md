@@ -1,2 +1,4 @@
 # Front-End
-Repositary used for learning front end develpment
+Repositary used for learning front end develpment.
+Author-Waseema
+
