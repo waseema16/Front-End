@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Text Over Image</title>
+  <style>
+    .text {
+      position: relative;
+      width: auto;
+      height: 800px;
+    }
+
+    .image {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .hello {
+      position: absolute;
+      top: 15%;
+      left: 50%;
+      color: white;
+      font-size: 22px;
+      font-weight: bold;
+      background-color: black;
+      padding: 10px 15px;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="text">
+    <img src="lake.jpg" alt="Sample Image" class="image">
+    <div class="hello">Hello World</div>
+  </div>
+
+</body>
+</html>
