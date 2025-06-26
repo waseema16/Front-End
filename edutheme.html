@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <title>Acadam Website</title>
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  font-family: 'Arial', sans-serif;
+  height: 100%;
+  width: 100%;
+}
+
+/* Navbar */
+.navbar {
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 50px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.logo span {
+  font-size: 24px;
+  font-weight: bold;
+  color: #c21836;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #fffcfc;
+}
+
+/* Hero Section with Full Cover Image */
+.hero {
+  position: relative;
+  height: 100vh;
+  background: url('https://www.shutterstock.com/image-photo/portrait-closeup-asian-beautiful-smiley-260nw-1463936711.jpg') no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  padding: 20px;
+}
+
+.hero-text .badge {
+  background: black;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 5px;
+  display: inline-block;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.hero-text h1 {
+  font-size: 60px;
+  margin: 20px 0;
+}
+
+.hero-text h1 strong {
+  color: white;
+}
+
+.hero-text p {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.cta-button {
+  background: black;
+  color: white;
+  padding: 12px 25px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: 0.3s ease;
+}
+
+.cta-button:hover {
+  background: #333;
+}
+/* Feature Cards Section */
+.features {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 30px;
+  padding: 80px 50px;
+  background: #fff;
+  flex-wrap: wrap;
+}
+
+.feature-card {
+  flex: 1;
+  min-width: 280px;
+  max-width: 350px;
+  padding: 30px;
+  background-color: #f8f8f8;
+  box-shadow: 0 0 10px rgba(0,0,0,0.08);
+  position: relative;
+  text-align: left;
+  border-radius: 6px;
+  background-image: url('https://i.imgur.com/2s0yn1Q.png'); /* Replace with your faint icon background */
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-size: 80px;
+}
+
+.feature-card.red-card {
+  background-color: #c21836;
+  color: white;
+}
+
+.feature-card h3 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #c21836;
+  display: inline-block;
+}
+
+.red-card h3 {
+  border-color: white;
+}
+
+.feature-card p {
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.read-more {
+  display: inline-block;
+  padding: 10px 20px;
+  color: #c21836;
+  border: 2px solid #c21836;
+  text-decoration: none;
+  border-radius: 3px;
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+.red-card .read-more {
+  color: white;
+  border-color: white;
+}
+
+.read-more:hover {
+  background: #c21836;
+  color: white;
+}
+
+.red-card .read-more:hover {
+  background: white;
+  color: #c21836;
+}
+/* Welcome Section */
+.welcome-section {
+  text-align: center;
+  padding: 80px 50px;
+  background-color: #fff;
+}
+
+.section-title {
+  color: #c21836;
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.title-divider {
+  font-size: 24px;
+  margin-bottom: 40px;
+  color: #c21836;
+}
+
+.welcome-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.grid-item {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  height: 220px;
+  border-radius: 5px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  padding: 15px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.grid-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.grid-item span {
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  z-index: 2;
+  text-align: left;
+}
+
+.grid-item:hover {
+  transform: scale(1.03);
+}
+/* About Section */
+.about-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  padding: 60px 50px;
+  background: white;
+}
+
+.about-left {
+  flex: 1;
+  min-width: 300px;
+  padding: 40px;
+  background: #c21836;
+  color: white;
+  position: relative;
+}
+
+.about-left h5 {
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  border-left: 4px solid white;
+  padding-left: 10px;
+}
+
+.about-left h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.about-left p {
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.about-btn {
+  text-decoration: none;
+  color: white;
+  border: 2px solid white;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 5px;
+  display: inline-block;
+  transition: 0.3s;
+}
+
+.about-btn span {
+  margin-right: 8px;
+  font-weight: bold;
+}
+
+.about-btn:hover {
+  background: white;
+  color: #c21836;
+}
+
+/* Right image area */
+.about-right {
+  flex: 1;
+  position: relative;
+  min-width: 300px;
+  background: #f0f0f0;
+}
+
+.about-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-label {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 4px;
+  text-align: left;
+}
+
+.image-label h1 {
+  font-size: 26px;
+  color: #c21836;
+  margin-bottom: 5px;
+}
+
+.image-label p {
+  font-size: 14px;
+}
+
+.image-label p strong {
+  color: #fff;
+}
+
+/* Education Cards Section */
+.education-section {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 60px 50px;
+  background: white;
+  flex-wrap: wrap;
+}
+
+.edu-card {
+  width: 100%;
+  max-width: 350px;
+  background: #f5f5f5;
+  box-shadow: 0 0 10px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.edu-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.edu-content {
+  padding: 20px;
+}
+
+.edu-content h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.edu-content p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #555;
+}
+
+.edu-footer {
+  background: #c21836;
+  padding: 15px;
+  text-align: center;
+}
+
+.edu-footer a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.edu-footer a span {
+  background: black;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 50%;
+  margin-left: 10px;
+}
+.ceo{
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+.success-section {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #fff;
+}
+
+.section-title {
+  color: #b10024;
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.underline {
+  font-size: 24px;
+  color: #b10024;
+  margin-bottom: 40px;
+}
+
+.success-counters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+.counter-box {
+  width: 200px;
+  position: relative;
+}
+
+.icon-circle {
+  width: 50px;
+  height: 50px;
+  background-color: #b10024;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  margin: 0 auto 10px auto;
+}
+
+.counter-box h3 {
+  font-size: 28px;
+  margin: 10px 0;
+  color: #000;
+}
+
+.counter-box p {
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #333;
+  letter-spacing: 1px;
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="logo.png" alt="Acadam Logo">
+      <span>acadam</span>
+    </div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#do">What We Do</a></li>
+        <li><a href="#our">Our Programs</a></li>
+        <li><a href="#course">Courses</a></li>
+        <li><a href="#page">Pages</a></li>
+        <li><a href="#element">Elements</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <div class="hero-text">
+        <div class="badge">PREPARING FOR BRIGHT FUTURE</div>
+        <h1><strong>PEOPLE</strong> FOR TOMORROW</h1>
+        <p>Your Education on Your Own Terms</p>
+        <a href="#" class="cta-button">View more details</a>
+      </div>
+    </div>
+  </section>
+  <!-- Features Section -->
+<section class="features" id="do">
+  <div class="feature-card light-card">
+    <h3>Bright Learning</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi hendrerit elit turpis, a porttitor tellus sollicitudin at.</p>
+    <a href="#" class="read-more">Read More</a>
+  </div>
+
+  <div class="feature-card red-card">
+    <h3>Qualified Staffs</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi hendrerit elit turpis, a porttitor tellus sollicitudin at.</p>
+    <a href="#" class="read-more">Read More</a>
+  </div>
+
+  <div class="feature-card light-card">
+    <h3>Certified Courses</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi hendrerit elit turpis, a porttitor tellus sollicitudin at.</p>
+    <a href="#" class="read-more">Read More</a>
+  </div>
+</section>
+<!-- Welcome Section -->
+<section class="welcome-section" id="our">
+  <h2 class="section-title">Welcome To Acadam</h2>
+  <div class="title-divider">
+    <span class="icon">&#127979;</span> <!-- Unicode for a classical building -->
+  </div>
+
+  <div class="welcome-grid">
+    <div class="grid-item" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT50m1oJvYVZSMiUwImjyMXRdTYnuZqha-rng&s');">
+      <span>World Class Research Labs</span>
+    </div>
+    <div class="grid-item" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlLKGubEUFlMvguH8XUljKnAwgFsxE6YnWfQ&s');">
+      <span>Placement Training Programs</span>
+    </div>
+    <div class="grid-item" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRJNglPBnIDHmdGuH5JJCgeOoRPrNRJpmJvw&s');">
+      <span>Modern Educational Materials</span>
+    </div>
+    <div class="grid-item" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdWEJkgRHDZMfaoTVPMNeX7Hh14CZTWbmW8Q&s');">
+      <span>High-grade Reference Guides</span>
+    </div>
+    <div class="grid-item" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCo8rOQYNng7zOsul-uQadauG04vpxc46fTA&s');">
+      <span>Master of Business Research</span>
+    </div>
+    <div class="grid-item" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXkblsrTLnwnxzVU4ltdvPmakf_kjRGt4K0A&s');">
+      <span>Design Engineering Courses</span>
+    </div>
+    <div class="grid-item" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRknNRhi3re94z6rAgGgJfV_hjNlwZTM5CpNw&s');">
+      <span>Online Learning Library</span>
+    </div>
+    <div class="grid-item" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRztx2DYwgloEMdRbpyzdQsC-jQ__3lKQ-Dg&s');">
+      <span>Kind and Caring Staff</span>
+    </div>
+     <div class="grid-item" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfs3zdymq9bzb0eRkLNBtIVbQFPd9z63r2OA&s');">
+      <span>Hi Tech Campus</span>
+    </div>
+     <div class="grid-item" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5bSPCwrus7RZE5bLQRu79HO7TIJ8kQuCjqW4rqhigOO0wj-Zxzc7sQiCYj_ozadFHzc4&usqp=CAU');">
+      <span>Lab & Other Basic Facilities</span>
+    </div>
+  </div>
+</section>
+<!-- About Section -->
+<section class="about-section" id="course">
+  <div class="about-left">
+    <h5>TAKE THE FIRST STEP TO KNOWLEDGE WITH US</h5>
+    <h2>Acadam University shapes and molds the students as successful leaders and guides them to create their own victorious future.</h2>
+    <p>
+      Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus.
+    </p>
+    <a href="#" class="about-btn">
+      <span>&#10148;</span> Learn More About Us
+    </a>
+  </div>
+  <div class="about-right">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpOb-406L33vOEp-f6-ufq9dg_P91ZZZwN6A&s" alt="Graduation Girl"> <!-- Replace with your image -->
+    <div class="image-label">
+      <h1>ACADAM</h1>
+      <p>Start With a Dream, <strong>Finish With a Future</strong></p>
+    </div>
+  </div>
+</section>
+ </section>
+ <section class="welcome-section" id="pages">
+  <h2 class="section-title">What we offer</h2>
+  <div class="title-divider">
+    <span class="icon">&#127979;</span> <!-- Unicode for a classical building -->
+  </div>
+</section>
+<!-- Education Cards Section -->
+<section class="education-section">
+  <div class="edu-card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHquIlXWQp1tMsPQcNgEcdyhhQY7RMbsQjfA&s" alt="Graduate">
+    <div class="edu-content">
+      <h3>Career and Technical Education</h3>
+      <p>
+        Donec nec justo eget felis facilisis ferme ntum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis. Morbi in sem quis dui placerat ornare.
+      </p>
+    </div>
+    <div class="edu-footer" id="element">
+      <a href="#">Click Here <span>&#10140;</span></a>
+    </div>
+  </div>
+
+  <div class="edu-card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy-KJikcXn4YPMT_S0xr-_2vWNZ9qUclsxPw&s" alt="Man with laptop">
+    <div class="edu-content">
+      <h3>Better Education for a Better World</h3>
+      <p>
+        Donec nec justo eget felis facilisis ferme ntum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis. Morbi in sem quis dui placerat ornare.
+      </p>
+    </div>
+    <div class="edu-footer" id="contact">
+      <a href="#">Click Here <span>&#10140;</span></a>
+    </div>
+  </div>
+
+  <div class="edu-card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQo2CWDtMSZ5swGZZ87-YgwbgkyC83cud2Ygw&s" alt="Girl with book">
+    <div class="edu-content">
+      <h3>Superior Learning and Teaching Materials</h3>
+      <p>
+        Donec nec justo eget felis facilisis ferme ntum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis. Morbi in sem quis dui placerat ornare.
+      </p>
+    </div>
+    <div class="edu-footer">
+      <a href="#">Click Here <span>&#10140;</span></a>
+    </div>
+  </div>
+</section>
+<section class="success-section">
+  <h2 class="section-title">Our Success Counts</h2>
+  <div class="underline"><i class="fas fa-university"></i></div>
+
+  <div class="success-counters">
+    <div class="counter-box">
+      <div class="icon-circle"><i class="fas fa-graduation-cap"></i></div>
+      <h3>3567+</h3>
+      <p>Passed Graduates</p>
+    </div>
+    <div class="counter-box">
+      <div class="icon-circle"><i class="fas fa-users"></i></div>
+      <h3>450+</h3>
+      <p>Qualified Staffs</p>
+    </div>
+    <div class="counter-box">
+      <div class="icon-circle"><i class="fas fa-bullseye"></i></div>
+      <h3>50+</h3>
+      <p>Years of Experience</p>
+    </div>
+    <div class="counter-box">
+      <div class="icon-circle"><i class="fas fa-file-alt"></i></div>
+      <h3>135+</h3>
+      <p>Courses Published</p>
+    </div>
+  </div>
+</section>
+
+<!-- Font Awesome CDN for Icons -->
+
+</body>
+</html>
